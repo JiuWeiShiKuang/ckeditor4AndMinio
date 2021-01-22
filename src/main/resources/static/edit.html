@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>A Simple Page with CKEditor</title>
     <!-- Make sure the path to CKEditor is correct. -->
-    <script src="ckeditor4/ckeditor.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
 </head>
 <body>
 <form>
@@ -19,10 +19,10 @@
         // Replace the <textarea id="editor1"> with a CKEditor
         // instance, using default configuration.
         CKEDITOR.replace('editor1');
-        function buttonSubmit() {
-            var a = CKEDITOR.instances.editor1.getData();
-            console.log(a);
-        }
+        // function buttonSubmit() {
+        //     var a = CKEDITOR.instances.editor1.getData();
+        //     console.log(a);
+        // }
     </script>
 </form>
 </body>

@@ -1,10 +1,35 @@
-spring:
+server:
+  port: 8080
   servlet:
-    multipart:
-      enabled: true
-      max-file-size: 30MB
-      max-request-size: 30MB
-  resources:
-    static-locations: /META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:E:/test
+    context-path: /
 
+spring:
+  application:
+    name: minio-demo
+  multipart:
+    enabled: true
+    max-file-size: 30MB
+    max-request-size: 30MB
+    resources:
+      static-locations: /META-INF/resources/,classpath:/resources/,classpath:/static,classpath:/public/,file:E:/test
+# ====================== ↓↓↓↓↓↓ MinIO文件服务器 ↓↓↓↓↓↓ ======================
+minio:
+  url: http://127.0.0.1:9000
+  accesskey: SW131BIZQDAHBCG205PY
+  secretKey: ++RNCJRFbUcmDDWlnvDIVMM0+3m7XI9TuW4gj0eh
+  bucketName: ckeditor
+
+logging:
+  level:
+    ROOT: INFO
+    com.minio: DEBUG
+  pattern:
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{50} - %msg%n'
+  file:
+    name: ${logging.file.path}/${spring.application.name}.log
+    path: /home/logs/${spring.application.name}
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      max-history: 30
 
